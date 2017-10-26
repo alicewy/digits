@@ -1,7 +1,7 @@
 <template name="Home_Page">
-  <div class="ui middle aligned centered grid text container">
-
-    <table style=margin-top:20px class="ui celled table">
+  <div class="ui container">
+    {{#if Template.subscriptionsReady}}
+    <table style="margin-top: 20px" class="ui celled table">
       <thead>
       <tr>
         <th>First</th>
@@ -9,36 +9,24 @@
         <th>Address</th>
         <th>Phone</th>
         <th>Email</th>
-      </tr></thead>
+      </tr>
+      </thead>
+
       <tbody>
+      {{#each contact in contactsList}}
       <tr>
-        <td>
-          <div class="ui ribbon label">Phillip</div>
-        </td>
-        <td>Johnson</td>
-        <td>1680 East-West Rd., Honolulu, HI</td>
-        <td>808-956-3489</td>
-        <td>pjohnson@hawaii.edu</td>
+        <td>{{contact.first}}</td>
+        <td>{{contact.last}}</td>
+        <td>{{contact.address}}</td>
+        <td>{{contact.telephone}}</td>
+        <td>{{contact.email}}</td>
       </tr>
-      <tr>
-        <td>
-          <div class="ui ribbon label">Phillip</div>
-        </td>
-        <td>Johnson</td>
-        <td>1680 East-West Rd., Honolulu, HI</td>
-        <td>808-956-3489</td>
-        <td>pjohnson@hawaii.edu</td>
-      </tr>
-      <tr>
-        <td>
-          <div class="ui ribbon label">Phillip</div>
-        </td>
-        <td>Johnson</td>
-        <td>1680 East-West Rd., Honolulu, HI</td>
-        <td>808-956-3489</td>
-        <td>pjohnson@hawaii.edu</td>
-      </tr>
+      {{/each}}
       </tbody>
     </table>
+    {{else}}
+    {{> Loading}}
+    {{/if}}
+
   </div>
 </template>
