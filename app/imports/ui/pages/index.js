@@ -15,3 +15,6 @@ import './home-page.js';
 
 import './list-stuff-page.html';
 import './list-stuff-page.js';
+
+import './list-contacts-page.html';
+import './list-contacts-page.js';

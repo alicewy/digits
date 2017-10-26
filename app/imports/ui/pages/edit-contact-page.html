@@ -1,37 +1,27 @@
-<template name = "Edit_Contact_Page">
-  <div style = "margin-top: 20px" class = "ui container">
-    <form class="ui form">
-      <h4 class="ui dividing header">Edit Contact</h4>
+<template name='Edit_Contact_Page'>
+  {{#if Template.subscriptionsReady}}
+  <div style="margin-top: 20px" class="ui container">
+    <form class="ui form contact-data-form {{errorClass}}">
+      <h4 class="ui dividing header"></h4>
       <div class="field">
         <label>Name</label>
         <div class="two fields">
-          <div class="field">
-            <input type="text" name="first" placeholder="First Name">
-          </div>
-          <div class="field">
-            <input type="text" name="last" placeholder="Last Name">
-          </div>
+          {{> Text_Form_Control label="First" required=true value=(contactDataField 'first') errorMessage=(fieldError "first")}}
+          {{> Text_Form_Control label="Last" required=true value=(contactDataField 'last') errorMessage=(fieldError "last")}}
         </div>
       </div>
 
-      <div class="field">
-        <label>Address</label>
-        <input type="text" name="address" placeholder="Address">
-      </div>
-
+      {{> Text_Form_Control label="Address" required=true value=(contactDataField 'address') errorMessage=(fieldError "address")}}
 
       <div class="field">
-        <label>Telephone/Email</label>
         <div class="two fields">
-          <div class="field">
-            <input type="text" name="telephone" placeholder="Telephone">
-          </div>
-          <div class="field">
-            <input type="text" name="email" placeholder="Email">
-          </div>
+          {{> Text_Form_Control label="Telephone" required=true value=(contactDataField 'telephone') errorMessage=(fieldError "telephone")}}
+          {{> Text_Form_Control label="Email" required=true value=(contactDataField 'email') errorMessage=(fieldError "email")}}
         </div>
       </div>
+
       <button class="ui button" type="submit">Update</button>
     </form>
   </div>
+  {{/if}}
 </template>

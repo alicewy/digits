@@ -1,5 +1,5 @@
-<template name="Home_Page">
-  <div class="ui container">
+<template name="List_Contacts_Page">
+  <div class="ui text container">
     {{#if Template.subscriptionsReady}}
     <table style="margin-top: 20px" class="ui celled table">
       <thead>
@@ -7,10 +7,8 @@
         <th>First</th>
         <th>Last</th>
         <th>Address</th>
-        <th>Phone</th>
+        <th>Telephone</th>
         <th>Email</th>
-        <th>Edit</th>
-
       </tr>
       </thead>
 
@@ -22,8 +20,7 @@
         <td>{{contact.address}}</td>
         <td>{{contact.telephone}}</td>
         <td>{{contact.email}}</td>
-        <td><a href = "{{pathFor 'Edit_Contact_Page' _id = contact._id }}">Edit</a></td>
-
+        <td><a href="{{pathFor 'Edit_Contact_Page' _id=contact._id}}">Edit</a></td>
       </tr>
       {{/each}}
       </tbody>
@@ -31,6 +28,5 @@
     {{else}}
     {{> Loading}}
     {{/if}}
-
   </div>
 </template>
